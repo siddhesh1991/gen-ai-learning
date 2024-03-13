@@ -1,0 +1,5 @@
+https://csyhuang.github.io/2023/06/29/coursera-generative-ai/
+https://github.com/Ryota-Kawamura/Generative-AI-with-LLMs
+https://github.com/langchain-ai/langchain
+https://a16z.com/who-owns-the-generative-ai-platform/
+https://huggingface.co/blog/trl-peft
