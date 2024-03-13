@@ -58,6 +58,38 @@ def recursive_feature_elimination(X, y):
     
     return rfecv
 
+
+def plot_feature_correlations_with_target(df, target_column):
+    """
+    Plots the correlation of all features with the target variable.
+
+    Parameters:
+    - df: A pandas DataFrame containing the features and the target column.
+    - target_column: The name of the target column as a string.
+
+    This function computes the correlation of each feature with the target
+    and plots these correlations in a bar chart.
+    """
+    # Calculate correlations with the target
+    correlation_series = df.corrwith(df[target_column])
+    # Drop the target column correlation (with itself)
+    correlation_series = correlation_series.drop(target_column, axis=0)
+    # Sort the correlations for better visualization
+    correlation_series = correlation_series.sort_values()
+
+    # Plotting
+    plt.figure(figsize=(10, 8))
+    sns.barplot(x=correlation_series.values, y=correlation_series.index)
+    plt.title('Correlation of Features with Target')
+    plt.xlabel('Correlation Coefficient')
+    plt.ylabel('Features')
+    plt.tight_layout()
+    plt.show()
+
+# Example usage:
+# Assuming 'df' is your DataFrame and 'target' is your target column
+# plot_feature_correlations_with_target(df, 'target')
+
 # Main function to run the feature selection process
 def run_feature_selection():
     X, y = generate_data()
